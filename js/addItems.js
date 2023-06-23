@@ -2,6 +2,8 @@ class AddItems {
     dlIter = 1;
 
     addLevel(lvlname, username, id) {
+        id = '00' + id;
+        id = id.substr(-3);
         const list = document.querySelector('.dl-list');
         const listItem = document.createElement('li');
         listItem.onclick = () => {
