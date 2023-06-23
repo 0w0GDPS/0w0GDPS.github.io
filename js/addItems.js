@@ -126,4 +126,34 @@ class AddItems {
             text.innerText = i + 1 + '. ' + innerText;
         }
     }
+
+    addRecord(lvlid, username, record, url, typeurl) {
+        let local = window.location.href;
+        local = local.slice(0, -5).substr(-3);
+        if('0' + lvlid != local) return;
+
+        const table = document.querySelector('table');
+        const tr = document.createElement('tr');
+        table.appendChild(tr);
+
+        const td1 = document.createElement('td');
+        const nodeText1 = document.createTextNode(username);
+        td1.appendChild(nodeText1);
+        tr.appendChild(td1);
+
+        const td2 = document.createElement('td');
+        const text2 = document.createElement('h5');
+        const nodeText2 = document.createTextNode(record);
+        td2.appendChild(nodeText2);
+        tr.appendChild(td2);
+
+        const td3 = document.createElement('td');
+
+        const text3 = document.createElement('a');
+        text3.href = url;
+        const nodeText3 = document.createTextNode(typeurl);
+        text3.appendChild(nodeText3);
+        td3.appendChild(text3);
+        tr.appendChild(td3);
+    }
 }
